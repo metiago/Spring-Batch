@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+
+  mysql:
+    container_name: 'mysql'
+    image: mysql:5.5
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - net-backend
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_PASSWORD: 12345678
+      MYSQL_USER: metiago
+      MYSQL_DATABASE: test
+    # volumes:
+    #   - /home/tiago/volumes:/data
+
+  adminer:
+    container_name: 'adminer'
+    image: adminer
+    restart: always
+    depends_on:
+      - 'mysql'
+    networks:
+      - net-backend
+    ports:
+      - 8080:8080
+
+networks:
+  net-backend:
