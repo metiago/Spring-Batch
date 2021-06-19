@@ -5,3 +5,6 @@
 /data/
 .vscode
 /target/
+.settings
+.project
+.classpath
