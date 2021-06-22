@@ -7,8 +7,6 @@ You’d opt to use batch applications to compute data for generating monthly fin
 
 ![alt tag](img.png)
 
-Note: Each example is separate by branches.
-
 #### Running
 
 Any branch can be fetched and executed with the shell script below.

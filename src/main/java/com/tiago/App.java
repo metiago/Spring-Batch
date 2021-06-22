@@ -1,5 +1,6 @@
 package com.tiago;
 
+import com.tiago.config.DatasourceConfiguration;
 import com.tiago.config.XmlFileConfiguration;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
@@ -8,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@ComponentScan({"com.tiago.*"})
-@Import({XmlFileConfiguration.class})
 @EnableBatchProcessing
+@Import({DatasourceConfiguration.class, XmlFileConfiguration.class})
+@ComponentScan({"com.tiago.*"})
 public class App {
 
     public static void main(String[] args) {

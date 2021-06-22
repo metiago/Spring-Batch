@@ -8,6 +8,7 @@ import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.listener.JobExecutionListenerSupport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +20,9 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 
     private static final Logger LOG = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
 
-    private final JdbcTemplate jdbcTemplate;
-
     @Autowired
-    public JobCompletionNotificationListener(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    @Qualifier("jdbcTemplate2")
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public void afterJob(JobExecution jobExecution) {
